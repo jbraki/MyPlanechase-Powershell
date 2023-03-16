@@ -1,0 +1,121 @@
+{
+    "data":  [
+                 {
+                     "object":  "card",
+                     "id":  "ed4f4210-9871-4cec-9b46-100c80f93cd4",
+                     "oracle_id":  "15b979de-c8ee-4664-9ca7-6c4eb3346967",
+                     "multiverse_ids":  [
+                                            423590
+                                        ],
+                     "tcgplayer_id":  125570,
+                     "cardmarket_id":  294404,
+                     "name":  "Academy at Tolaria West",
+                     "lang":  "en",
+                     "released_at":  "2018-12-25",
+                     "uri":  "https://api.scryfall.com/cards/ed4f4210-9871-4cec-9b46-100c80f93cd4",
+                     "scryfall_uri":  "https://scryfall.com/card/opca/9/academy-at-tolaria-west?utm_source=api",
+                     "layout":  "planar",
+                     "highres_image":  true,
+                     "image_status":  "highres_scan",
+                     "image_uris":  {
+                                        "small":  "https://cards.scryfall.io/small/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.jpg?1645050357",
+                                        "normal":  "https://cards.scryfall.io/normal/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.jpg?1645050357",
+                                        "large":  "https://cards.scryfall.io/large/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.jpg?1645050357",
+                                        "png":  "https://cards.scryfall.io/png/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.png?1645050357",
+                                        "art_crop":  "https://cards.scryfall.io/art_crop/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.jpg?1645050357",
+                                        "border_crop":  "https://cards.scryfall.io/border_crop/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.jpg?1645050357"
+                                    },
+                     "mana_cost":  "",
+                     "cmc":  0.0,
+                     "type_line":  "Plane — Dominaria",
+                     "oracle_text":  "At the beginning of your end step, if you have no cards in hand, draw seven cards.\nWhenever you roll {CHAOS}, discard your hand.",
+                     "colors":  [
+
+                                ],
+                     "color_identity":  [
+
+                                        ],
+                     "keywords":  [
+
+                                  ],
+                     "legalities":  {
+                                        "standard":  "not_legal",
+                                        "future":  "not_legal",
+                                        "historic":  "not_legal",
+                                        "gladiator":  "not_legal",
+                                        "pioneer":  "not_legal",
+                                        "explorer":  "not_legal",
+                                        "modern":  "not_legal",
+                                        "legacy":  "not_legal",
+                                        "pauper":  "not_legal",
+                                        "vintage":  "not_legal",
+                                        "penny":  "not_legal",
+                                        "commander":  "not_legal",
+                                        "brawl":  "not_legal",
+                                        "historicbrawl":  "not_legal",
+                                        "alchemy":  "not_legal",
+                                        "paupercommander":  "not_legal",
+                                        "duel":  "not_legal",
+                                        "oldschool":  "not_legal",
+                                        "premodern":  "not_legal",
+                                        "predh":  "not_legal"
+                                    },
+                     "games":  [
+                                   "paper"
+                               ],
+                     "reserved":  false,
+                     "foil":  false,
+                     "nonfoil":  true,
+                     "finishes":  [
+                                      "nonfoil"
+                                  ],
+                     "oversized":  true,
+                     "promo":  false,
+                     "reprint":  true,
+                     "variation":  false,
+                     "set_id":  "ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set":  "opca",
+                     "set_name":  "Planechase Anthology Planes",
+                     "set_type":  "planechase",
+                     "set_uri":  "https://api.scryfall.com/sets/ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set_search_uri":  "https://api.scryfall.com/cards/search?order=set\u0026q=e%3Aopca\u0026unique=prints",
+                     "scryfall_set_uri":  "https://scryfall.com/sets/opca?utm_source=api",
+                     "rulings_uri":  "https://api.scryfall.com/cards/ed4f4210-9871-4cec-9b46-100c80f93cd4/rulings",
+                     "prints_search_uri":  "https://api.scryfall.com/cards/search?order=released\u0026q=oracleid%3A15b979de-c8ee-4664-9ca7-6c4eb3346967\u0026unique=prints",
+                     "collector_number":  "9",
+                     "digital":  false,
+                     "rarity":  "common",
+                     "card_back_id":  "7840c131-f96b-4700-9347-2215c43156e6",
+                     "artist":  "James Paick",
+                     "artist_ids":  [
+                                        "1a7be0a2-d8ac-45c7-b0a0-eb0886f47b5f"
+                                    ],
+                     "illustration_id":  "8d617a18-0f09-4471-8ac6-f0928f1f9912",
+                     "border_color":  "black",
+                     "frame":  "2015",
+                     "full_art":  false,
+                     "textless":  false,
+                     "booster":  false,
+                     "story_spotlight":  false,
+                     "prices":  {
+                                    "usd":  "2.88",
+                                    "usd_foil":  null,
+                                    "usd_etched":  null,
+                                    "eur":  "1.00",
+                                    "eur_foil":  null,
+                                    "tix":  null
+                                },
+                     "related_uris":  {
+                                          "gatherer":  "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=423590",
+                                          "tcgplayer_infinite_articles":  "https://infinite.tcgplayer.com/search?contentMode=article\u0026game=magic\u0026partner=scryfall\u0026q=Academy+at+Tolaria+West\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "tcgplayer_infinite_decks":  "https://infinite.tcgplayer.com/search?contentMode=deck\u0026game=magic\u0026partner=scryfall\u0026q=Academy+at+Tolaria+West\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "edhrec":  "https://edhrec.com/route/?cc=Academy+at+Tolaria+West"
+                                      },
+                     "purchase_uris":  {
+                                           "tcgplayer":  "https://www.tcgplayer.com/product/125570?page=1\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                           "cardmarket":  "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall\u0026searchString=Academy+at+Tolaria+West\u0026utm_campaign=card_prices\u0026utm_medium=text\u0026utm_source=scryfall",
+                                           "cardhoarder":  "https://www.cardhoarder.com/cards?affiliate_id=scryfall\u0026data%5Bsearch%5D=Academy+at+Tolaria+West\u0026ref=card-profile\u0026utm_campaign=affiliate\u0026utm_medium=card\u0026utm_source=scryfall"
+                                       }
+                 }
+				 ]
+				 }
