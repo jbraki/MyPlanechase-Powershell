@@ -13,11 +13,7 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
-#This following line is needed for getData
-#Install-Module -Name Invoke-RestMethod
 
-# Create a new instance of the Random class
-$rand = New-Object System.Random
 
 # Generate a random integer between 1 and 5
 # New-Variable -Name $min -Value 1 -Option Constant
@@ -32,6 +28,7 @@ $global:currentCard
 $global:cardCounter = 0
 $global:lastcard = ""
 $global:isDeckEmpty = $false
+$global:diceRollCost = 0
 
 <#
     START
@@ -40,12 +37,17 @@ $global:isDeckEmpty = $false
 #>
 
 function getData{
-    #SEE LINE 16**
+
+    #This following line is needed=
+    #Install-Module -Name Invoke-RestMethod
+
     Write-Host "[$((Get-Date).TimeofDay) BEGIN  ] Starting $($myinvocation.mycommand)"
+    
 
 
     # Set the URL for the Scryfall API request
     $url = "https://api.scryfall.com/cards/search?q=t%3Aplane"
+    #$url = "https://api.scryfall.com/cards/search?q=t%3Aphenomenon"
 
     # Send an HTTPS GET request to the URL and convert the response to JSON format
     $response = Invoke-RestMethod -Uri $url -Method Get | Select-Object -Property data | ConvertTo-Json -Depth 100
@@ -61,11 +63,14 @@ function readCard{
 
     #CHOOSE ONE
     #$json = Get-Content -Path "one_card.json" | ConvertFrom-Json
-    #$json = Get-Content -Path "five_cards.json" | ConvertFrom-Json
+    $json = Get-Content -Path "five_cards.json" | ConvertFrom-Json
     #$json = Get-Content -Path "plane_cards.json" | ConvertFrom-Json
     #$json = Get-Content -Path "phenomenon_cards.json" | ConvertFrom-Json
 
-    #TODO COMBINE plane_cards and phenomenon_cards into one JSON file
+    #Use this for all cards
+    #$json = Get-Content -Path "all_cards.json" | ConvertFrom-Json
+
+
 
 
     foreach ($card in $json.data) {
@@ -162,7 +167,7 @@ function shuffleStack{
     for ($i = 0; $i -lt $originalCount; $i++) {
         #Choose a random card, add it to Random Pile, remove selected card
         $randomIndex = Get-Random -Minimum 0 -Maximum $cardStack.Count
-        $shuffledStack.Add($cardStack[$randomIndex])
+        $shuffledStack.Add($cardStack[$randomIndex]) | Out-Null
         $cardStack.RemoveAt($randomIndex)
     }
 
@@ -193,11 +198,11 @@ function getTopCard{
 
     if ($cardStack -ne $null){
         $global:cardCounter--
-        Write-Host "Currently $global:cardCounter cards left"
+        
 
         #Select the last card, move it to a different object, remove it from the original list
         $global:currentCard = $cardStack[$cardStack.Count - 1]
-        Write-Host "Next Card: $global:currentCard.getCardName()"
+        Write-Host "Next Card: " $global:currentCard.getCardName()
         $cardStack.RemoveAt($cardStack.Count - 1)
 
     }
@@ -206,6 +211,7 @@ function getTopCard{
         $global:isDeckEmpty = $true
         
     }
+    Write-Host "Currently $global:cardCounter cards left"
 
     Write-Host "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
     
@@ -235,10 +241,39 @@ function changePlane {
         }
     }
 
+
     #TODO Discard Pile
     #setLastCard -inputCard $imgPath
     #Write-Host $("Last Card was: " + (getLastCard))
     Write-Host "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
+}
+
+Function rollDie{
+    Write-Host "[$((Get-Date).TimeofDay) BEGIN  ] Starting $($myinvocation.mycommand)"
+
+    $global:diceRollCost++
+    $Button.Text = "Roll for $global:diceRollCost"
+    $randomIndex = Get-Random -Minimum 1 -Maximum 7
+    if($randomIndex -eq 1){
+        Write-Host "Rolled: CHANGE PLANE"
+        changePlane
+    }
+    elseif($randomIndex -eq 6){
+        Write-Host "Rolled: CHAOS"
+
+
+    }
+
+    Write-Host "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
+}
+
+function nextPlayer{
+    $global:diceRollCost = 0    
+    $Button.Text = "Roll for $global:diceRollCost"
+}
+
+function Close-Form {
+    Write-Host "Form is closing"
 }
 
 <#
@@ -248,17 +283,24 @@ function changePlane {
 #>
 
 #TODO More Form Design
-
+# (XXX,YYY)
 $Form = New-Object System.Windows.Forms.Form
 $Form.Text = "My Test Program"
 $Form.Size = New-Object System.Drawing.Size(965, 800)
 $Form.FormBorderStyle = "Fixed3D"
 
 $Button = New-Object System.Windows.Forms.Button
-$Button.Location = New-Object System.Drawing.Point(10, 700)
+$Button.Location = New-Object System.Drawing.Point(9, 700)
 $Button.Size = New-Object System.Drawing.Size(100, 50)
-$Button.Text = "Next Card"
+$Button.Text = "Roll for $global:diceRollCost"
 $Form.Controls.Add($Button)
+
+$Button2 = New-Object System.Windows.Forms.Button
+$Button2.Location = New-Object System.Drawing.Point(846, 700)
+$Button2.Size = New-Object System.Drawing.Size(100, 50)
+$Button2.Text = "Next Player"
+$Button2.Enabled = $false
+$Form.Controls.Add($Button2)
 
 $PictureBox = New-Object System.Windows.Forms.PictureBox
 $PictureBox.Location = New-Object System.Drawing.Point(10, 10)
@@ -275,7 +317,22 @@ $loadHandler = {
 $Button.Add_Click({
     Write-Host "Button Clicked"
     if($global:isDeckEmpty -eq $false){
-        changePlane
+        rollDie
+        $Button2.Enabled = $true
+
+    }
+    if($global:isDeckEmpty -eq $true){
+        $Button.Enabled = $false
+    }
+    
+})
+
+$Button2.Add_Click({
+    Write-Host "Button Clicked"
+    if($global:isDeckEmpty -eq $false){
+        nextPlayer
+        $Button2.Enabled = $false
+
     }
     if($global:isDeckEmpty -eq $true){
         $Button.Enabled = $false
@@ -285,4 +342,5 @@ $Button.Add_Click({
 
 $Form.Controls.Add($PictureBox)
 $form.Add_Load($loadHandler)
+$form.Add_FormClosing({Close-Form})
 $Form.ShowDialog()
