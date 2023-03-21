@@ -1,2 +1,2 @@
 # MyPlanechase-Powershell
-A second version of MyPlanechase using Powershell on Windows
+A second version of MyPlanechase using Powershell on Windows as a learning exercise
