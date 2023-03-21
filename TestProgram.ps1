@@ -9,7 +9,7 @@
     In changePlane, update imgPath to your MTG directory
 #>
 
-#Load Assembly to create the form and drawings
+# Load Assembly to create the form and drawings
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
@@ -38,7 +38,7 @@ $global:diceRollCost = 0
 
 function getData{
 
-    #This following line is needed=
+    # This following line is needed
     #Install-Module -Name Invoke-RestMethod
 
     Write-Host "[$((Get-Date).TimeofDay) BEGIN  ] Starting $($myinvocation.mycommand)"
@@ -63,7 +63,7 @@ function readCard{
 
     #CHOOSE ONE
     #$json = Get-Content -Path "one_card.json" | ConvertFrom-Json
-    $json = Get-Content -Path "five_cards.json" | ConvertFrom-Json
+    $json = Get-Content -Path "five_cards_phenom.json" | ConvertFrom-Json
     #$json = Get-Content -Path "plane_cards.json" | ConvertFrom-Json
     #$json = Get-Content -Path "phenomenon_cards.json" | ConvertFrom-Json
 
@@ -77,7 +77,7 @@ function readCard{
         $global:cardCounter++
         # "| Out-Null" The reason why $cardStack.Add writes out numbers is because it is returning the index of the added element in the ArrayList.
         # In PowerShell, when a method returns a value but that value is not captured or used, PowerShell automatically writes that value to the console.
-        $cardStack.Add(($newCard = [myCard]::new($card.name, $card.oracle_text, $card.image_uris.normal))) | Out-Null
+        $cardStack.Add(($newCard = [myCard]::new($card.name, $card.oracle_text, $card.image_uris.normal, $card.type_line))) | Out-Null
         
     }
     #showStack
@@ -92,7 +92,7 @@ function downloadImages{
         $url = $card.getImgURL()
         $imgpath = "C:\temp\mtg\" + $card.getCardName() + ".jpg"
 
-        #Download the images
+        # Download the images
         $client = New-Object System.Net.WebClient
         $client.DownloadFile($url, $imgpath)
     
@@ -122,7 +122,8 @@ function rotateImages{
 
 }
 
-#TODO Discard Pile
+# TODO Discard Pile
+
 function setLastCard {
     param([string]$inputCard)
 
@@ -133,15 +134,19 @@ function getLastCard {
     return $global:lastcard
 }
 
+
 class myCard {
+    # IF ANYTHING GETS UPDATED HERE, GETCARD LINE 80 MUST BE UPDATED
     [string] $cardName
     [string] $oracleText
     [string] $imgURL
+    [string] $cardType
 
-    myCard([string] $name, [string] $text, [string] $url) {
+    myCard([string] $name, [string] $text, [string] $url, [string] $cType) {
         $this.cardName = $name
         $this.oracleText = $text
         $this.imgURL = $url
+        $this.cardType = $cType
     }
 
     [string] getCardName() {
@@ -155,6 +160,10 @@ class myCard {
     [string] getImgURL() {
         return $this.imgURL 
     }
+
+    [string] getCardType() {
+        return $this.cardType 
+    }
 }
 
 
@@ -165,13 +174,13 @@ function shuffleStack{
     $originalCount = $cardStack.Count
     
     for ($i = 0; $i -lt $originalCount; $i++) {
-        #Choose a random card, add it to Random Pile, remove selected card
+        # Choose a random card, add it to Random Pile, remove selected card
         $randomIndex = Get-Random -Minimum 0 -Maximum $cardStack.Count
         $shuffledStack.Add($cardStack[$randomIndex]) | Out-Null
         $cardStack.RemoveAt($randomIndex)
     }
 
-    #Re-add random pill to the oringla pill
+    # Re-add random pill to the oringla pill
     $cardStack.AddRange($shuffledStack)
     #showStack
 
@@ -179,7 +188,7 @@ function shuffleStack{
 }
 
 function showStack{
-    #If you want to see every card in the cardStack in the console
+    # If you want to see every card in the cardStack in the console
     Write-Host "[$((Get-Date).TimeofDay) BEGIN  ] Starting $($myinvocation.mycommand)"
 
     foreach ($card in $cardStack) {
@@ -200,7 +209,7 @@ function getTopCard{
         $global:cardCounter--
         
 
-        #Select the last card, move it to a different object, remove it from the original list
+        # Select the last card, move it to a different object, remove it from the original list
         $global:currentCard = $cardStack[$cardStack.Count - 1]
         Write-Host "Next Card: " $global:currentCard.getCardName()
         $cardStack.RemoveAt($cardStack.Count - 1)
@@ -233,7 +242,7 @@ function changePlane {
 
         }
         else{
-            #Clear Memory of old
+            # Clear Memory of old
             Write-Host "Image Updated"
             $pictureBox.Image.Dispose()
             $PictureBox.Image = [System.Drawing.Image]::FromFile($imgPath)
@@ -241,12 +250,106 @@ function changePlane {
         }
     }
 
+    checkPhenomenon    
 
-    #TODO Discard Pile
+
+    # TODO Discard Pile
     #setLastCard -inputCard $imgPath
     #Write-Host $("Last Card was: " + (getLastCard))
     Write-Host "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
 }
+
+function checkPhenomenon{
+    Write-Host "[$((Get-Date).TimeofDay) BEGIN  ] Starting $($myinvocation.mycommand)"
+    if($global:currentCard.getCardName() -eq "Chaotic Aether"){
+        loadAC
+    }
+    if($global:currentCard.getCardName() -eq "Interplanar Tunnel"){
+        loadIT
+    }
+    
+    if($global:currentCard.getCardName() -eq "Spatial Merging"){
+
+    }
+
+
+    Write-Host "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
+}
+
+function loadAC{
+    # Create another Form pop up with the Phenomenon Chaotic AEther
+    # When you encounter Chaotic Aether, each blank roll of the planar die is a {CHAOS} roll until a player planeswalks away from a plane.
+    # (Then planeswalk away from this phenomenon.)
+    Write-Host "[$((Get-Date).TimeofDay) BEGIN  ] Starting $($myinvocation.mycommand)"
+    
+    $formAE = New-Object System.Windows.Forms.Form
+    $formAE.Text = "Chaotic Aether"
+    $formAE.Size = New-Object System.Drawing.Size(600, 400)
+
+    $pictureBoxAE = New-Object System.Windows.Forms.PictureBox
+    $pictureBoxAE.Location = New-Object System.Drawing.Point(10, 10)
+    $pictureBoxAE.Size = New-Object System.Drawing.Size(570, 330)
+    $pictureBoxAE.SizeMode = "Zoom"
+    $pictureBoxAE.Image = $PictureBox.Image
+
+    $formAE.Controls.Add($pictureBoxAE)
+
+    $result = $formAE.Show()
+
+
+    Write-Host "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
+}
+
+function loadIT{
+    # Create another Form pop up with the Phenomenon Interplanar Tunnel
+    # When you encounter Interplanar Tunnel, reveal cards from the top of your planar deck until you reveal five plane cards.
+    # Put a plane card from among them on top of your planar deck, then put the rest of the revealed cards on the bottom in a random order.
+    # (Then planeswalk away from this phenomenon.)
+    Write-Host "[$((Get-Date).TimeofDay) BEGIN  ] Starting $($myinvocation.mycommand)"
+    
+    $formIT = New-Object System.Windows.Forms.Form
+    $formIT.Text = "Interplanar Tunnel"
+    $formIT.Size = New-Object System.Drawing.Size(3000, 2000)
+
+    $pictureBoxIT1 = New-Object System.Windows.Forms.PictureBox
+    $pictureBoxIT1.Location = New-Object System.Drawing.Point(10, 10)
+    $pictureBoxIT1.Size = New-Object System.Drawing.Size(570, 330)
+    $pictureBoxIT1.SizeMode = "Zoom"
+    $pictureBoxIT1.Image = $PictureBox.Image
+
+    $pictureBoxIT2 = New-Object System.Windows.Forms.PictureBox
+    $pictureBoxIT2.Location = New-Object System.Drawing.Point(10, 10)
+    $pictureBoxIT2.Size = New-Object System.Drawing.Size(570, 330)
+    $pictureBoxIT2.SizeMode = "Zoom"
+    $pictureBoxIT2.Image = $PictureBox.Image
+
+    $pictureBoxIT3 = New-Object System.Windows.Forms.PictureBox
+    $pictureBoxIT3.Location = New-Object System.Drawing.Point(10, 10)
+    $pictureBoxIT3.Size = New-Object System.Drawing.Size(570, 330)
+    $pictureBoxIT3.SizeMode = "Zoom"
+    $pictureBoxIT3.Image = $PictureBox.Image
+
+    $pictureBoxIT4 = New-Object System.Windows.Forms.PictureBox
+    $pictureBoxIT4.Location = New-Object System.Drawing.Point(10, 10)
+    $pictureBoxIT4.Size = New-Object System.Drawing.Size(570, 330)
+    $pictureBoxIT4.SizeMode = "Zoom"
+    $pictureBoxIT4.Image = $PictureBox.Image
+
+    $pictureBoxIT5 = New-Object System.Windows.Forms.PictureBox
+    $pictureBoxIT5.Location = New-Object System.Drawing.Point(10, 10)
+    $pictureBoxIT5.Size = New-Object System.Drawing.Size(570, 330)
+    $pictureBoxIT5.SizeMode = "Zoom"
+    $pictureBoxIT5.Image = $PictureBox.Image
+
+    $formIT.Controls.Add($pictureBox2)
+
+    $result = $formIT.Show()
+
+
+    Write-Host "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
+}
+
+
 
 Function rollDie{
     Write-Host "[$((Get-Date).TimeofDay) BEGIN  ] Starting $($myinvocation.mycommand)"
@@ -282,7 +385,7 @@ function Close-Form {
 
 #>
 
-#TODO More Form Design
+# TODO More Form Design
 # (XXX,YYY)
 $Form = New-Object System.Windows.Forms.Form
 $Form.Text = "My Test Program"
@@ -317,7 +420,8 @@ $loadHandler = {
 $Button.Add_Click({
     Write-Host "Button Clicked"
     if($global:isDeckEmpty -eq $false){
-        rollDie
+        #rollDie
+        changePlane
         $Button2.Enabled = $true
 
     }
