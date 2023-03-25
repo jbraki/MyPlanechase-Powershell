@@ -25,12 +25,13 @@ $i = 0
 $global:cardStack = New-Object System.Collections.ArrayList
 $oldStack = @()
 $global:currentCard
-#$global:cardCounter = 0
+$global:cardCounter = 0
 $global:lastcard = ""
 $global:isDeckEmpty = $false
 $global:diceRollCost = 0
 $global:turn = 0
 $global:returnToMain = $false
+$global:isSpatialMerging = $false
 
 <#
     START
@@ -66,7 +67,7 @@ function readCard{
     #CHOOSE ONE
     #$json = Get-Content -Path "one_card.json" | ConvertFrom-Json
     #$json = Get-Content -Path "five_cards_phenom.json" | ConvertFrom-Json
-    $json = Get-Content -Path "SM.json" | ConvertFrom-Json
+    $json = Get-Content -Path "IT.json" | ConvertFrom-Json
     #$json = Get-Content -Path "plane_cards.json" | ConvertFrom-Json
     #$json = Get-Content -Path "phenomenon_cards.json" | ConvertFrom-Json
 
@@ -238,11 +239,21 @@ function checkFirstTurn{
     # Check to see if first card is a Phenomenon, if it is, Add the card back and shuffle
     if($global:currentCard.getCardType() -eq "Phenomenon" -and $global:turn -eq 1){
         Write-Host "[$((Get-Date).TimeofDay) WARNING] Phenomenon Found on Top. RESHUFFLING"
-        $global:cardStack.Add($global:currentCard)
-        shuffleStack
-        getTopCard
-        checkFirstTurn
+        
+        $global:cardCounter++
+        # Check for infinite loop; ONLY PHENOMENON LOADED BUG
+        if($global:cardCounter -gt $global:cardStack.Count){
+            Write-Host "[$((Get-Date).TimeofDay) WARNING] INFINITE LOOP FOUND"
+            break
 
+        }
+        else{
+            $global:cardStack.Add($global:currentCard)
+            shuffleStack
+            getTopCard
+            checkFirstTurn
+
+        }
     }
 
     Write-Host "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
@@ -263,12 +274,13 @@ function changePlane {
         checkFirstTurn
     }
     if($global:turn -eq 2){
-        # ONLY FOR TESTING
-        Write-Host "[$((Get-Date).TimeofDay) INFO   ] TESTING FOR: Spatial Merging"
+        # ONLY FOR TESTING Spatial Merging || Interplanar Tunnel
+        $testValue = "Interplanar Tunnel"
+        Write-Host "[$((Get-Date).TimeofDay) INFO   ] TESTING FOR: $testValue"
 
-        if($global:currentCard.getCardName() -ne "Spatial Merging"){
+        if($global:currentCard.getCardName() -ne $testValue){
             do{
-                Write-Host "[$((Get-Date).TimeofDay) WARNING] NOT Spatial Merging. RESHUFFLING"
+                Write-Host "[$((Get-Date).TimeofDay) WARNING] NOT $testValue. RESHUFFLING"
                 $global:cardStack.Add($global:currentCard)
                 shuffleStack
                 getTopCard
@@ -276,7 +288,7 @@ function changePlane {
                     break
                 }
 
-            } while ($global:currentCard.getCardName() -ne "Spatial Merging")     
+            } while ($global:currentCard.getCardName() -ne $testValue)     
         }
     }
 
@@ -320,6 +332,7 @@ function getPlaneCard{
     }
 
     # Grab cards only if they are Planes, if they are a Phenomenon, Add it to bottom
+    # TODO This will have to get fixed, this is assuming Interplanar Tunnel still exist in the card stack, Spatial Merging requires two planes
     if($planeCount -ge 5){
         getTopCard
         if($global:currentCard.getCardType() -eq "Phenomenon"){
@@ -364,9 +377,11 @@ function loadSM{
     # Put all other cards revealed this way on the bottom of your planar deck in any order.
     Write-Host "[$((Get-Date).TimeofDay) BEGIN  ] Starting $($myinvocation.mycommand)"
 
+    $global:isSpatialMerging = $true
+
     $FormSM = New-Object System.Windows.Forms.Form
     $FormSM.Text = "Spatial Merging"
-    $FormSM.Size = New-Object System.Drawing.Size(1200, 800)
+    $FormSM.Size = New-Object System.Drawing.Size(1280, 720)
 
     $buttonWidth = $FormSM.ClientSize.Width * 0.2  # 20% of form width
     $buttonHeight = $FormSM.ClientSize.Height * 0.1  # 10% of form height
@@ -375,32 +390,47 @@ function loadSM{
     $buttonY = $FormSM.ClientSize.Height * 0.85  
 
 
-    $ButtonSM = New-Object System.Windows.Forms.Button
-    $ButtonSM.Location = New-Object System.Drawing.Point($buttonX, $buttonY)
-    $ButtonSM.Size = New-Object System.Drawing.Size($buttonWidth, $buttonHeight)
-    $ButtonSM.Text = "Roll for $global:diceRollCost"
-    $FormSM.Controls.Add($ButtonSM)
+    $buttonSM = New-Object System.Windows.Forms.Button
+    $buttonSM.Location = New-Object System.Drawing.Point($buttonX, $buttonY)
+    $buttonSM.Size = New-Object System.Drawing.Size($buttonWidth, $buttonHeight)
+    $buttonSM.Text = "Roll for $global:diceRollCost"
+    $FormSM.Controls.Add($buttonSM)
 
     $button2X = $FormSM.ClientSize.Width * 0.75  
     $button2Y = $FormSM.ClientSize.Height * 0.85  
 
-    $ButtonSM2 = New-Object System.Windows.Forms.Button
-    $ButtonSM2.Location = New-Object System.Drawing.Point($buttonX, $buttonY)
-    $ButtonSM2.Size = New-Object System.Drawing.Size($button2Width, $button2Height)
-    $ButtonSM2.Text = "Next Player"
-    $ButtonSM2.Enabled = $false
-    $FormSM.Controls.Add($ButtonSM2)
+    $buttonSM2 = New-Object System.Windows.Forms.Button
+    $buttonSM2.Location = New-Object System.Drawing.Point($button2X, $button2Y)
+    $buttonSM2.Size = New-Object System.Drawing.Size($buttonWidth, $buttonHeight)     
+    $buttonSM2.Text = "Next Player"
+    $buttonSM2.Enabled = $false
+    $FormSM.Controls.Add($buttonSM2)
+
+    $button3X = $Form.ClientSize.Width * 0.4  
+    $button3Y = $Form.ClientSize.Height * 0.85 
+
+    $ButtonSM3 = New-Object System.Windows.Forms.Button
+    $ButtonSM3.Location = New-Object System.Drawing.Point($button3X, $button3Y)
+    $ButtonSM3.Size = New-Object System.Drawing.Size($buttonWidth, $buttonHeight)
+    $ButtonSM3.Text = "Force Change"
+    $ButtonSM3.Enabled = $false
+    $FormSM.Controls.Add($ButtonSM3)
+
+    $PictureBoxSMWidth = $FormSM.ClientSize.Width * 0.40  
+    $PictureBoxSMHeight = $FormSM.ClientSize.Height * 0.75    
 
     # CARD 1
     getPlaneCard
     $card1 = $global:currentCard
+    $PictureBoxSMX = $FormSM.ClientSize.Width * 0.025  
+    $PictureBoxSMY = $FormSM.ClientSize.Height * 0.025 
     Write-Host "[$((Get-Date).TimeofDay) INFO   ] Spatial Merging Card 1: " $card1.getCardName()
     $imgpath = "C:\temp\mtg\" + $card1.getCardName() + ".jpg"
     Write-Host "[$((Get-Date).TimeofDay) INFO   ] Image path is: $imgPath"
 
     $PictureBoxSM = New-Object System.Windows.Forms.PictureBox
-    $PictureBoxSM.Location = New-Object System.Drawing.Point(10, 10)
-    $PictureBoxSM.Size = New-Object System.Drawing.Size(570, 330)
+    $PictureBoxSM.Location = New-Object System.Drawing.Point($PictureBoxSMX, $PictureBoxSMY)
+    $PictureBoxSM.Size = New-Object System.Drawing.Size($PictureBoxSMWidth, $PictureBoxSMHeight)
     $PictureBoxSM.SizeMode = "Zoom"
     $PictureBoxSM.Image = [System.Drawing.Image]::FromFile($imgPath)
 
@@ -410,15 +440,44 @@ function loadSM{
     # CARD 2
     getPlaneCard
     $card2 = $global:currentCard
+    $PictureBoxSM2X = $FormSM.ClientSize.Width * 0.525  
+    $PictureBoxSM2Y = $FormSM.ClientSize.Height * 0.025 
     Write-Host "[$((Get-Date).TimeofDay) INFO   ] Spatial Merging Card 2: " $card2.getCardName()
     $imgpath = "C:\temp\mtg\" + $card2.getCardName() + ".jpg"
     Write-Host "[$((Get-Date).TimeofDay) INFO   ] Image path is: $imgPath"
 
     $PictureBoxSM2 = New-Object System.Windows.Forms.PictureBox
-    $PictureBoxSM2.Location = New-Object System.Drawing.Point(590, 10)
-    $PictureBoxSM2.Size = New-Object System.Drawing.Size(570, 330)
+    $PictureBoxSM2.Location = New-Object System.Drawing.Point($PictureBoxSM2X, $PictureBoxSM2Y)
+    $PictureBoxSM2.Size = New-Object System.Drawing.Size($PictureBoxSMWidth, $PictureBoxSMHeight)
     $PictureBoxSM2.SizeMode = "Zoom"
     $PictureBoxSM2.Image = [System.Drawing.Image]::FromFile($imgPath)
+
+    $buttonSM.Add_Click({
+        Write-Host "[$((Get-Date).TimeofDay) INFO   ] Button Clicked"
+        if($global:isDeckEmpty -eq $false){
+            rollDie
+            #changePlane
+            $Button2.Enabled = $true
+
+        }
+        if($global:isDeckEmpty -eq $true){
+            $Button.Enabled = $false
+        }
+        
+    })
+
+    $buttonSM2.Add_Click({
+        Write-Host "[$((Get-Date).TimeofDay) INFO   ] Button2 Clicked"
+        if($global:isDeckEmpty -eq $false){
+            nextPlayer
+            $Button2.Enabled = $false
+
+        }
+        if($global:isDeckEmpty -eq $true){
+            $Button.Enabled = $false
+        }
+        
+    })
 
     
     $FormSM.Controls.Add($PictureBoxSM2)
@@ -452,8 +511,6 @@ function loadAC{
     Write-Host "[$((Get-Date).TimeofDay) END    ] Ending $($myinvocation.mycommand)"
 }
 
-
-
 function loadIT{
     # Create another Form pop up with the Phenomenon Interplanar Tunnel
     # When you encounter Interplanar Tunnel, reveal cards from the top of your planar deck until you reveal five plane cards.
@@ -465,84 +522,105 @@ function loadIT{
     
     $formIT = New-Object System.Windows.Forms.Form
     $formIT.Text = "Interplanar Tunnel"
-    $formIT.Size = New-Object System.Drawing.Size(1450,800)
+    $formIT.Size = New-Object System.Drawing.Size(1280, 720) # 1600, 900 OR  1280, 720
+
+    $pictureBoxWidth = $FormIT.ClientSize.Width * 0.32
+    $pictureBoxHeight = $FormIT.ClientSize.Height * 0.32
 
     # CARD 1
     getPlaneCard
     $card1 = $global:currentCard
-    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Interplannar Tunnel Card 1: " $card1.getCardName()
+    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Interplanar Tunnel Card 1: " $card1.getCardName()
     $imgpath = "C:\temp\mtg\" + $card1.getCardName() + ".jpg"
     Write-Host "[$((Get-Date).TimeofDay) INFO   ] Image path is: $imgPath"
 
+    $pictureBoxIT1X = $FormIT.ClientSize.Width * 0.01
+    $pictureBoxIT1Y = $FormIT.ClientSize.Height * 0.01    
+
     $pictureBoxIT1 = New-Object System.Windows.Forms.PictureBox
-    $pictureBoxIT1.Location = New-Object System.Drawing.Point(10, 10)
-    $pictureBoxIT1.Size = New-Object System.Drawing.Size(475, 270)
-    $pictureBoxIT1.SizeMode = "Zoom"
+    $pictureBoxIT1.Location = New-Object System.Drawing.Point($pictureBoxIT1X, $pictureBoxIT1Y)
+    $pictureBoxIT1.Size = New-Object System.Drawing.Size($pictureBoxWidth, $pictureBoxHeight)
+    $pictureBoxIT1.SizeMode = "StretchImage"
     $pictureBoxIT1.Image = [System.Drawing.Image]::FromFile($imgPath)
     $pictureBoxIT1.Cursor = [System.Windows.Forms.Cursors]::Hand
 
     # CARD 2
-    getPlaneCard
+    getPlaneCard 
     $card2 = $global:currentCard
-    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Interplannar Tunnel Card 2: " $card2.getCardName()
-
+    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Interplanar Tunnel Card 2: " $card2.getCardName()
     $imgpath = "C:\temp\mtg\" + $card2.getCardName() + ".jpg"
     Write-Host "[$((Get-Date).TimeofDay) INFO   ] Image path is: $imgPath"    
 
+    $pictureBoxIT2X = $FormIT.ClientSize.Width * 0.34
+    $pictureBoxIT2Y = $FormIT.ClientSize.Height * 0.01  
+
     $pictureBoxIT2 = New-Object System.Windows.Forms.PictureBox
-    $pictureBoxIT2.Location = New-Object System.Drawing.Point(475, 10)
-    $pictureBoxIT2.Size = New-Object System.Drawing.Size(475, 270)
-    $pictureBoxIT2.SizeMode = "Zoom"
+    $pictureBoxIT2.Location = New-Object System.Drawing.Point($pictureBoxIT2X, $pictureBoxIT2Y)
+    $pictureBoxIT2.Size = New-Object System.Drawing.Size($pictureBoxWidth, $pictureBoxHeight)
+    $pictureBoxIT2.SizeMode = "StretchImage"
     $pictureBoxIT2.Image = [System.Drawing.Image]::FromFile($imgPath)
     $pictureBoxIT2.Cursor = [System.Windows.Forms.Cursors]::Hand
     
     # CARD 3
     getPlaneCard
     $card3 = $global:currentCard
-    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Interplannar Tunnel Card 3: " $card3.getCardName()
+    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Interplanar Tunnel Card 3: " $card3.getCardName()
     $imgpath = "C:\temp\mtg\" + $card3.getCardName() + ".jpg"
     Write-Host "[$((Get-Date).TimeofDay) INFO   ] Image path is: $imgPath" 
 
+    $pictureBoxIT3X = $FormIT.ClientSize.Width * 0.67
+    $pictureBoxIT3Y = $FormIT.ClientSize.Height * 0.01  
+
     $pictureBoxIT3 = New-Object System.Windows.Forms.PictureBox
-    $pictureBoxIT3.Location = New-Object System.Drawing.Point(950, 10)
-    $pictureBoxIT3.Size = New-Object System.Drawing.Size(475, 270)
-    $pictureBoxIT3.SizeMode = "Zoom"
+    $pictureBoxIT3.Location = New-Object System.Drawing.Point($pictureBoxIT3X, $pictureBoxIT3Y)
+    $pictureBoxIT3.Size = New-Object System.Drawing.Size($pictureBoxWidth, $pictureBoxHeight)
+    $pictureBoxIT3.SizeMode = "StretchImage"
     $pictureBoxIT3.Image = [System.Drawing.Image]::FromFile($imgPath)
     $pictureBoxIT3.Cursor = [System.Windows.Forms.Cursors]::Hand
 
     # CARD 4
     getPlaneCard
     $card4 = $global:currentCard
-    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Interplannar Tunnel Card 4: " $card4.getCardName()
+    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Interplanar Tunnel Card 4: " $card4.getCardName()
     $imgpath = "C:\temp\mtg\" + $card4.getCardName() + ".jpg"
-    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Image path is: $imgPath"     
+    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Image path is: $imgPath"
+
+    $pictureBoxIT4X = $FormIT.ClientSize.Width * 0.01
+    $pictureBoxIT4Y = $FormIT.ClientSize.Height * 0.34       
 
     $pictureBoxIT4 = New-Object System.Windows.Forms.PictureBox
-    $pictureBoxIT4.Location = New-Object System.Drawing.Point(10, 290)
-    $pictureBoxIT4.Size = New-Object System.Drawing.Size(475, 270)
-    $pictureBoxIT4.SizeMode = "Zoom"
+    $pictureBoxIT4.Location = New-Object System.Drawing.Point($pictureBoxIT4X, $pictureBoxIT4Y)
+    $pictureBoxIT4.Size = New-Object System.Drawing.Size($pictureBoxWidth, $pictureBoxHeight)
+    $pictureBoxIT4.SizeMode = "StretchImage"
     $pictureBoxIT4.Image = [System.Drawing.Image]::FromFile($imgPath)
     $pictureBoxIT4.Cursor = [System.Windows.Forms.Cursors]::Hand
 
     # CARD 5
     getPlaneCard
     $card5 = $global:currentCard
-    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Interplannar Tunnel Card 5: " $card5.getCardName()
+    Write-Host "[$((Get-Date).TimeofDay) INFO   ] Interplanar Tunnel Card 5: " $card5.getCardName()
     $imgpath = "C:\temp\mtg\" + $card5.getCardName() + ".jpg"
     Write-Host "[$((Get-Date).TimeofDay) INFO   ] Image path is: $imgPath" 
     
+    $pictureBoxIT5X = $FormIT.ClientSize.Width * 0.34
+    $pictureBoxIT5Y = $FormIT.ClientSize.Height * 0.34  
 
     $pictureBoxIT5 = New-Object System.Windows.Forms.PictureBox
-    $pictureBoxIT5.Location = New-Object System.Drawing.Point(475, 290)
-    $pictureBoxIT5.Size = New-Object System.Drawing.Size(475, 270)
-    $pictureBoxIT5.SizeMode = "Zoom"
+    $pictureBoxIT5.Location = New-Object System.Drawing.Point($pictureBoxIT5X, $pictureBoxIT5Y)
+    $pictureBoxIT5.Size = New-Object System.Drawing.Size($pictureBoxWidth, $pictureBoxHeight)
+    $pictureBoxIT5.SizeMode = "StretchImage"
     $pictureBoxIT5.Image = [System.Drawing.Image]::FromFile($imgPath)
     $pictureBoxIT5.Cursor = [System.Windows.Forms.Cursors]::Hand
+
+    $labelWidth = $FormIT.ClientSize.Width * 0.80
+    $labelHeight = $FormIT.ClientSize.Height * 0.32
+    $labelX = $FormIT.ClientSize.Width * 0.1
+    $labelY = $FormIT.ClientSize.Height * 0.82
     
     $label = New-Object System.Windows.Forms.Label
-    $label.Location = New-Object System.Drawing.Point(100, 600)
-    $label.Size = New-Object System.Drawing.Size(1200, 150)
-    $label.Font = New-Object System.Drawing.Font("Arial", 20)
+    $label.Location = New-Object System.Drawing.Point($labelX, $labelY)
+    $label.Size = New-Object System.Drawing.Size($labelWidth, $labelHeight)
+    $label.Font = New-Object System.Drawing.Font("Arial", 18)
     $label.Text = $itCard.getOracleText()
 
     $formIT.Controls.Add($label)
@@ -642,9 +720,18 @@ Function rollDie{
     $global:diceRollCost++
     $Button.Text = "Roll for $global:diceRollCost"
     $randomIndex = Get-Random -Minimum 1 -Maximum 7
+    
     if($randomIndex -eq 1){
         Write-Host "[$((Get-Date).TimeofDay) INFO   ] Rolled: CHANGE PLANE"
-        changePlane
+        if($global:isSpatialMerging -eq $false){
+            changePlane
+        }
+        else{
+            $global:isSpatialMerging = $false
+            $formSM.Dispose()
+            $formSM.Close()
+            changePlane
+        }
     }
     elseif($randomIndex -eq 6){
         Write-Host "[$((Get-Date).TimeofDay) INFO   ] Rolled: CHAOS"
@@ -713,6 +800,16 @@ $Button2.Size = New-Object System.Drawing.Size($buttonWidth, $buttonHeight)
 $Button2.Text = "Next Player"
 $Button2.Enabled = $false
 $Form.Controls.Add($Button2)
+
+$button3X = $Form.ClientSize.Width * 0.4  
+$button3Y = $Form.ClientSize.Height * 0.85 
+
+$Button3 = New-Object System.Windows.Forms.Button
+$Button3.Location = New-Object System.Drawing.Point($button3X, $button3Y)
+$Button3.Size = New-Object System.Drawing.Size($buttonWidth, $buttonHeight)
+$Button3.Text = "Force Change"
+$Button3.Enabled = $false
+$Form.Controls.Add($Button3)
 
 $PictureBoxX = $Form.ClientSize.Width * 0.01
 $PictureBoxY = $Form.ClientSize.Height * 0.01
