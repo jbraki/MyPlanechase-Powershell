@@ -1,0 +1,706 @@
+{
+    "data":  [
+                 {
+                     "object":  "card",
+                     "id":  "ed4f4210-9871-4cec-9b46-100c80f93cd4",
+                     "oracle_id":  "15b979de-c8ee-4664-9ca7-6c4eb3346967",
+                     "multiverse_ids":  [
+                                            423590
+                                        ],
+                     "tcgplayer_id":  125570,
+                     "cardmarket_id":  294404,
+                     "name":  "Academy at Tolaria West",
+                     "lang":  "en",
+                     "released_at":  "2018-12-25",
+                     "uri":  "https://api.scryfall.com/cards/ed4f4210-9871-4cec-9b46-100c80f93cd4",
+                     "scryfall_uri":  "https://scryfall.com/card/opca/9/academy-at-tolaria-west?utm_source=api",
+                     "layout":  "planar",
+                     "highres_image":  true,
+                     "image_status":  "highres_scan",
+                     "image_uris":  {
+                                        "small":  "https://cards.scryfall.io/small/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.jpg?1645050357",
+                                        "normal":  "https://cards.scryfall.io/normal/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.jpg?1645050357",
+                                        "large":  "https://cards.scryfall.io/large/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.jpg?1645050357",
+                                        "png":  "https://cards.scryfall.io/png/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.png?1645050357",
+                                        "art_crop":  "https://cards.scryfall.io/art_crop/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.jpg?1645050357",
+                                        "border_crop":  "https://cards.scryfall.io/border_crop/front/e/d/ed4f4210-9871-4cec-9b46-100c80f93cd4.jpg?1645050357"
+                                    },
+                     "mana_cost":  "",
+                     "cmc":  0.0,
+                     "type_line":  "Plane — Dominaria",
+                     "oracle_text":  "At the beginning of your end step, if you have no cards in hand, draw seven cards.\nWhenever you roll {CHAOS}, discard your hand.",
+                     "colors":  [
+
+                                ],
+                     "color_identity":  [
+
+                                        ],
+                     "keywords":  [
+
+                                  ],
+                     "legalities":  {
+                                        "standard":  "not_legal",
+                                        "future":  "not_legal",
+                                        "historic":  "not_legal",
+                                        "gladiator":  "not_legal",
+                                        "pioneer":  "not_legal",
+                                        "explorer":  "not_legal",
+                                        "modern":  "not_legal",
+                                        "legacy":  "not_legal",
+                                        "pauper":  "not_legal",
+                                        "vintage":  "not_legal",
+                                        "penny":  "not_legal",
+                                        "commander":  "not_legal",
+                                        "brawl":  "not_legal",
+                                        "historicbrawl":  "not_legal",
+                                        "alchemy":  "not_legal",
+                                        "paupercommander":  "not_legal",
+                                        "duel":  "not_legal",
+                                        "oldschool":  "not_legal",
+                                        "premodern":  "not_legal",
+                                        "predh":  "not_legal"
+                                    },
+                     "games":  [
+                                   "paper"
+                               ],
+                     "reserved":  false,
+                     "foil":  false,
+                     "nonfoil":  true,
+                     "finishes":  [
+                                      "nonfoil"
+                                  ],
+                     "oversized":  true,
+                     "promo":  false,
+                     "reprint":  true,
+                     "variation":  false,
+                     "set_id":  "ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set":  "opca",
+                     "set_name":  "Planechase Anthology Planes",
+                     "set_type":  "planechase",
+                     "set_uri":  "https://api.scryfall.com/sets/ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set_search_uri":  "https://api.scryfall.com/cards/search?order=set\u0026q=e%3Aopca\u0026unique=prints",
+                     "scryfall_set_uri":  "https://scryfall.com/sets/opca?utm_source=api",
+                     "rulings_uri":  "https://api.scryfall.com/cards/ed4f4210-9871-4cec-9b46-100c80f93cd4/rulings",
+                     "prints_search_uri":  "https://api.scryfall.com/cards/search?order=released\u0026q=oracleid%3A15b979de-c8ee-4664-9ca7-6c4eb3346967\u0026unique=prints",
+                     "collector_number":  "9",
+                     "digital":  false,
+                     "rarity":  "common",
+                     "card_back_id":  "7840c131-f96b-4700-9347-2215c43156e6",
+                     "artist":  "James Paick",
+                     "artist_ids":  [
+                                        "1a7be0a2-d8ac-45c7-b0a0-eb0886f47b5f"
+                                    ],
+                     "illustration_id":  "8d617a18-0f09-4471-8ac6-f0928f1f9912",
+                     "border_color":  "black",
+                     "frame":  "2015",
+                     "full_art":  false,
+                     "textless":  false,
+                     "booster":  false,
+                     "story_spotlight":  false,
+                     "prices":  {
+                                    "usd":  "2.88",
+                                    "usd_foil":  null,
+                                    "usd_etched":  null,
+                                    "eur":  "1.00",
+                                    "eur_foil":  null,
+                                    "tix":  null
+                                },
+                     "related_uris":  {
+                                          "gatherer":  "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=423590",
+                                          "tcgplayer_infinite_articles":  "https://infinite.tcgplayer.com/search?contentMode=article\u0026game=magic\u0026partner=scryfall\u0026q=Academy+at+Tolaria+West\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "tcgplayer_infinite_decks":  "https://infinite.tcgplayer.com/search?contentMode=deck\u0026game=magic\u0026partner=scryfall\u0026q=Academy+at+Tolaria+West\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "edhrec":  "https://edhrec.com/route/?cc=Academy+at+Tolaria+West"
+                                      },
+                     "purchase_uris":  {
+                                           "tcgplayer":  "https://www.tcgplayer.com/product/125570?page=1\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                           "cardmarket":  "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall\u0026searchString=Academy+at+Tolaria+West\u0026utm_campaign=card_prices\u0026utm_medium=text\u0026utm_source=scryfall",
+                                           "cardhoarder":  "https://www.cardhoarder.com/cards?affiliate_id=scryfall\u0026data%5Bsearch%5D=Academy+at+Tolaria+West\u0026ref=card-profile\u0026utm_campaign=affiliate\u0026utm_medium=card\u0026utm_source=scryfall"
+                                       }
+                 },
+                 {
+                     "object":  "card",
+                     "id":  "6caf8b21-1807-442c-a461-c89c7591df70",
+                     "oracle_id":  "38f84e55-049c-441e-b4e2-1e207ab5dbe5",
+                     "multiverse_ids":  [
+                                            423592
+                                        ],
+                     "tcgplayer_id":  125571,
+                     "cardmarket_id":  294406,
+                     "name":  "Agyrem",
+                     "lang":  "en",
+                     "released_at":  "2018-12-25",
+                     "uri":  "https://api.scryfall.com/cards/6caf8b21-1807-442c-a461-c89c7591df70",
+                     "scryfall_uri":  "https://scryfall.com/card/opca/11/agyrem?utm_source=api",
+                     "layout":  "planar",
+                     "highres_image":  true,
+                     "image_status":  "highres_scan",
+                     "image_uris":  {
+                                        "small":  "https://cards.scryfall.io/small/front/6/c/6caf8b21-1807-442c-a461-c89c7591df70.jpg?1547432309",
+                                        "normal":  "https://cards.scryfall.io/normal/front/6/c/6caf8b21-1807-442c-a461-c89c7591df70.jpg?1547432309",
+                                        "large":  "https://cards.scryfall.io/large/front/6/c/6caf8b21-1807-442c-a461-c89c7591df70.jpg?1547432309",
+                                        "png":  "https://cards.scryfall.io/png/front/6/c/6caf8b21-1807-442c-a461-c89c7591df70.png?1547432309",
+                                        "art_crop":  "https://cards.scryfall.io/art_crop/front/6/c/6caf8b21-1807-442c-a461-c89c7591df70.jpg?1547432309",
+                                        "border_crop":  "https://cards.scryfall.io/border_crop/front/6/c/6caf8b21-1807-442c-a461-c89c7591df70.jpg?1547432309"
+                                    },
+                     "mana_cost":  "",
+                     "cmc":  0.0,
+                     "type_line":  "Plane — Ravnica",
+                     "oracle_text":  "Whenever a white creature dies, return it to the battlefield under its owner\u0027s control at the beginning of the next end step.\nWhenever a nonwhite creature dies, return it to its owner\u0027s hand at the beginning of the next end step.\nWhenever you roll {CHAOS}, creatures can\u0027t attack you until a player planeswalks.",
+                     "colors":  [
+
+                                ],
+                     "color_identity":  [
+
+                                        ],
+                     "keywords":  [
+
+                                  ],
+                     "legalities":  {
+                                        "standard":  "not_legal",
+                                        "future":  "not_legal",
+                                        "historic":  "not_legal",
+                                        "gladiator":  "not_legal",
+                                        "pioneer":  "not_legal",
+                                        "explorer":  "not_legal",
+                                        "modern":  "not_legal",
+                                        "legacy":  "not_legal",
+                                        "pauper":  "not_legal",
+                                        "vintage":  "not_legal",
+                                        "penny":  "not_legal",
+                                        "commander":  "not_legal",
+                                        "brawl":  "not_legal",
+                                        "historicbrawl":  "not_legal",
+                                        "alchemy":  "not_legal",
+                                        "paupercommander":  "not_legal",
+                                        "duel":  "not_legal",
+                                        "oldschool":  "not_legal",
+                                        "premodern":  "not_legal",
+                                        "predh":  "not_legal"
+                                    },
+                     "games":  [
+                                   "paper"
+                               ],
+                     "reserved":  false,
+                     "foil":  false,
+                     "nonfoil":  true,
+                     "finishes":  [
+                                      "nonfoil"
+                                  ],
+                     "oversized":  true,
+                     "promo":  false,
+                     "reprint":  true,
+                     "variation":  false,
+                     "set_id":  "ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set":  "opca",
+                     "set_name":  "Planechase Anthology Planes",
+                     "set_type":  "planechase",
+                     "set_uri":  "https://api.scryfall.com/sets/ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set_search_uri":  "https://api.scryfall.com/cards/search?order=set\u0026q=e%3Aopca\u0026unique=prints",
+                     "scryfall_set_uri":  "https://scryfall.com/sets/opca?utm_source=api",
+                     "rulings_uri":  "https://api.scryfall.com/cards/6caf8b21-1807-442c-a461-c89c7591df70/rulings",
+                     "prints_search_uri":  "https://api.scryfall.com/cards/search?order=released\u0026q=oracleid%3A38f84e55-049c-441e-b4e2-1e207ab5dbe5\u0026unique=prints",
+                     "collector_number":  "11",
+                     "digital":  false,
+                     "rarity":  "common",
+                     "card_back_id":  "7840c131-f96b-4700-9347-2215c43156e6",
+                     "artist":  "Todd Lockwood",
+                     "artist_ids":  [
+                                        "d0b9f3cc-13fb-42b6-bc43-b034728e5c7b"
+                                    ],
+                     "illustration_id":  "995f5b3f-7988-4eb5-9335-284f5c3a1e10",
+                     "border_color":  "black",
+                     "frame":  "2015",
+                     "full_art":  false,
+                     "textless":  false,
+                     "booster":  false,
+                     "story_spotlight":  false,
+                     "prices":  {
+                                    "usd":  "2.97",
+                                    "usd_foil":  null,
+                                    "usd_etched":  null,
+                                    "eur":  "1.02",
+                                    "eur_foil":  null,
+                                    "tix":  null
+                                },
+                     "related_uris":  {
+                                          "gatherer":  "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=423592",
+                                          "tcgplayer_infinite_articles":  "https://infinite.tcgplayer.com/search?contentMode=article\u0026game=magic\u0026partner=scryfall\u0026q=Agyrem\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "tcgplayer_infinite_decks":  "https://infinite.tcgplayer.com/search?contentMode=deck\u0026game=magic\u0026partner=scryfall\u0026q=Agyrem\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "edhrec":  "https://edhrec.com/route/?cc=Agyrem"
+                                      },
+                     "purchase_uris":  {
+                                           "tcgplayer":  "https://www.tcgplayer.com/product/125571?page=1\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                           "cardmarket":  "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall\u0026searchString=Agyrem\u0026utm_campaign=card_prices\u0026utm_medium=text\u0026utm_source=scryfall",
+                                           "cardhoarder":  "https://www.cardhoarder.com/cards?affiliate_id=scryfall\u0026data%5Bsearch%5D=Agyrem\u0026ref=card-profile\u0026utm_campaign=affiliate\u0026utm_medium=card\u0026utm_source=scryfall"
+                                       }
+                 },
+                 {
+                     "object":  "card",
+                     "id":  "a1c7f2eb-0654-46f9-ae3d-11efcac837b8",
+                     "oracle_id":  "25650a32-4014-4065-ad01-7357c3ad3995",
+                     "multiverse_ids":  [
+                                            423593
+                                        ],
+                     "tcgplayer_id":  125572,
+                     "cardmarket_id":  294407,
+                     "name":  "Akoum",
+                     "lang":  "en",
+                     "released_at":  "2018-12-25",
+                     "uri":  "https://api.scryfall.com/cards/a1c7f2eb-0654-46f9-ae3d-11efcac837b8",
+                     "scryfall_uri":  "https://scryfall.com/card/opca/12/akoum?utm_source=api",
+                     "layout":  "planar",
+                     "highres_image":  true,
+                     "image_status":  "highres_scan",
+                     "image_uris":  {
+                                        "small":  "https://cards.scryfall.io/small/front/a/1/a1c7f2eb-0654-46f9-ae3d-11efcac837b8.jpg?1547432330",
+                                        "normal":  "https://cards.scryfall.io/normal/front/a/1/a1c7f2eb-0654-46f9-ae3d-11efcac837b8.jpg?1547432330",
+                                        "large":  "https://cards.scryfall.io/large/front/a/1/a1c7f2eb-0654-46f9-ae3d-11efcac837b8.jpg?1547432330",
+                                        "png":  "https://cards.scryfall.io/png/front/a/1/a1c7f2eb-0654-46f9-ae3d-11efcac837b8.png?1547432330",
+                                        "art_crop":  "https://cards.scryfall.io/art_crop/front/a/1/a1c7f2eb-0654-46f9-ae3d-11efcac837b8.jpg?1547432330",
+                                        "border_crop":  "https://cards.scryfall.io/border_crop/front/a/1/a1c7f2eb-0654-46f9-ae3d-11efcac837b8.jpg?1547432330"
+                                    },
+                     "mana_cost":  "",
+                     "cmc":  0.0,
+                     "type_line":  "Plane — Zendikar",
+                     "oracle_text":  "Players may cast enchantment spells as though they had flash.\nWhenever you roll {CHAOS}, destroy target creature that isn\u0027t enchanted.",
+                     "colors":  [
+
+                                ],
+                     "color_identity":  [
+
+                                        ],
+                     "keywords":  [
+
+                                  ],
+                     "legalities":  {
+                                        "standard":  "not_legal",
+                                        "future":  "not_legal",
+                                        "historic":  "not_legal",
+                                        "gladiator":  "not_legal",
+                                        "pioneer":  "not_legal",
+                                        "explorer":  "not_legal",
+                                        "modern":  "not_legal",
+                                        "legacy":  "not_legal",
+                                        "pauper":  "not_legal",
+                                        "vintage":  "not_legal",
+                                        "penny":  "not_legal",
+                                        "commander":  "not_legal",
+                                        "brawl":  "not_legal",
+                                        "historicbrawl":  "not_legal",
+                                        "alchemy":  "not_legal",
+                                        "paupercommander":  "not_legal",
+                                        "duel":  "not_legal",
+                                        "oldschool":  "not_legal",
+                                        "premodern":  "not_legal",
+                                        "predh":  "not_legal"
+                                    },
+                     "games":  [
+                                   "paper"
+                               ],
+                     "reserved":  false,
+                     "foil":  false,
+                     "nonfoil":  true,
+                     "finishes":  [
+                                      "nonfoil"
+                                  ],
+                     "oversized":  true,
+                     "promo":  false,
+                     "reprint":  true,
+                     "variation":  false,
+                     "set_id":  "ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set":  "opca",
+                     "set_name":  "Planechase Anthology Planes",
+                     "set_type":  "planechase",
+                     "set_uri":  "https://api.scryfall.com/sets/ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set_search_uri":  "https://api.scryfall.com/cards/search?order=set\u0026q=e%3Aopca\u0026unique=prints",
+                     "scryfall_set_uri":  "https://scryfall.com/sets/opca?utm_source=api",
+                     "rulings_uri":  "https://api.scryfall.com/cards/a1c7f2eb-0654-46f9-ae3d-11efcac837b8/rulings",
+                     "prints_search_uri":  "https://api.scryfall.com/cards/search?order=released\u0026q=oracleid%3A25650a32-4014-4065-ad01-7357c3ad3995\u0026unique=prints",
+                     "collector_number":  "12",
+                     "digital":  false,
+                     "rarity":  "common",
+                     "card_back_id":  "7840c131-f96b-4700-9347-2215c43156e6",
+                     "artist":  "Rob Alexander",
+                     "artist_ids":  [
+                                        "35906871-6c78-4ab2-9ed1-e6792c8efb74"
+                                    ],
+                     "illustration_id":  "0d0681f8-ecba-4289-ac18-2292b9dc9c0b",
+                     "border_color":  "black",
+                     "frame":  "2015",
+                     "full_art":  false,
+                     "textless":  false,
+                     "booster":  false,
+                     "story_spotlight":  false,
+                     "prices":  {
+                                    "usd":  "1.23",
+                                    "usd_foil":  null,
+                                    "usd_etched":  null,
+                                    "eur":  "0.80",
+                                    "eur_foil":  null,
+                                    "tix":  null
+                                },
+                     "related_uris":  {
+                                          "gatherer":  "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=423593",
+                                          "tcgplayer_infinite_articles":  "https://infinite.tcgplayer.com/search?contentMode=article\u0026game=magic\u0026partner=scryfall\u0026q=Akoum\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "tcgplayer_infinite_decks":  "https://infinite.tcgplayer.com/search?contentMode=deck\u0026game=magic\u0026partner=scryfall\u0026q=Akoum\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "edhrec":  "https://edhrec.com/route/?cc=Akoum"
+                                      },
+                     "purchase_uris":  {
+                                           "tcgplayer":  "https://www.tcgplayer.com/product/125572?page=1\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                           "cardmarket":  "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall\u0026searchString=Akoum\u0026utm_campaign=card_prices\u0026utm_medium=text\u0026utm_source=scryfall",
+                                           "cardhoarder":  "https://www.cardhoarder.com/cards?affiliate_id=scryfall\u0026data%5Bsearch%5D=Akoum\u0026ref=card-profile\u0026utm_campaign=affiliate\u0026utm_medium=card\u0026utm_source=scryfall"
+                                       }
+                 },
+                 {
+                     "object":  "card",
+                     "id":  "d6dc655e-d8ef-443a-bb3e-46c7ca1555ba",
+                     "oracle_id":  "d6ab4159-e04e-4991-8a9b-9da302c98e9d",
+                     "multiverse_ids":  [
+                                            423594
+                                        ],
+                     "tcgplayer_id":  125573,
+                     "cardmarket_id":  294408,
+                     "name":  "Aretopolis",
+                     "lang":  "en",
+                     "released_at":  "2018-12-25",
+                     "uri":  "https://api.scryfall.com/cards/d6dc655e-d8ef-443a-bb3e-46c7ca1555ba",
+                     "scryfall_uri":  "https://scryfall.com/card/opca/13/aretopolis?utm_source=api",
+                     "layout":  "planar",
+                     "highres_image":  true,
+                     "image_status":  "highres_scan",
+                     "image_uris":  {
+                                        "small":  "https://cards.scryfall.io/small/front/d/6/d6dc655e-d8ef-443a-bb3e-46c7ca1555ba.jpg?1547432302",
+                                        "normal":  "https://cards.scryfall.io/normal/front/d/6/d6dc655e-d8ef-443a-bb3e-46c7ca1555ba.jpg?1547432302",
+                                        "large":  "https://cards.scryfall.io/large/front/d/6/d6dc655e-d8ef-443a-bb3e-46c7ca1555ba.jpg?1547432302",
+                                        "png":  "https://cards.scryfall.io/png/front/d/6/d6dc655e-d8ef-443a-bb3e-46c7ca1555ba.png?1547432302",
+                                        "art_crop":  "https://cards.scryfall.io/art_crop/front/d/6/d6dc655e-d8ef-443a-bb3e-46c7ca1555ba.jpg?1547432302",
+                                        "border_crop":  "https://cards.scryfall.io/border_crop/front/d/6/d6dc655e-d8ef-443a-bb3e-46c7ca1555ba.jpg?1547432302"
+                                    },
+                     "mana_cost":  "",
+                     "cmc":  0.0,
+                     "type_line":  "Plane — Kephalai",
+                     "oracle_text":  "When you planeswalk to Aretopolis or at the beginning of your upkeep, put a scroll counter on Aretopolis, then you gain life equal to the number of scroll counters on it.\nWhen Aretopolis has ten or more scroll counters on it, planeswalk.\nWhenever you roll {CHAOS}, put a scroll counter on Aretopolis, then draw cards equal to the number of scroll counters on it.",
+                     "colors":  [
+
+                                ],
+                     "color_identity":  [
+
+                                        ],
+                     "keywords":  [
+
+                                  ],
+                     "legalities":  {
+                                        "standard":  "not_legal",
+                                        "future":  "not_legal",
+                                        "historic":  "not_legal",
+                                        "gladiator":  "not_legal",
+                                        "pioneer":  "not_legal",
+                                        "explorer":  "not_legal",
+                                        "modern":  "not_legal",
+                                        "legacy":  "not_legal",
+                                        "pauper":  "not_legal",
+                                        "vintage":  "not_legal",
+                                        "penny":  "not_legal",
+                                        "commander":  "not_legal",
+                                        "brawl":  "not_legal",
+                                        "historicbrawl":  "not_legal",
+                                        "alchemy":  "not_legal",
+                                        "paupercommander":  "not_legal",
+                                        "duel":  "not_legal",
+                                        "oldschool":  "not_legal",
+                                        "premodern":  "not_legal",
+                                        "predh":  "not_legal"
+                                    },
+                     "games":  [
+                                   "paper"
+                               ],
+                     "reserved":  false,
+                     "foil":  false,
+                     "nonfoil":  true,
+                     "finishes":  [
+                                      "nonfoil"
+                                  ],
+                     "oversized":  true,
+                     "promo":  false,
+                     "reprint":  true,
+                     "variation":  false,
+                     "set_id":  "ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set":  "opca",
+                     "set_name":  "Planechase Anthology Planes",
+                     "set_type":  "planechase",
+                     "set_uri":  "https://api.scryfall.com/sets/ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set_search_uri":  "https://api.scryfall.com/cards/search?order=set\u0026q=e%3Aopca\u0026unique=prints",
+                     "scryfall_set_uri":  "https://scryfall.com/sets/opca?utm_source=api",
+                     "rulings_uri":  "https://api.scryfall.com/cards/d6dc655e-d8ef-443a-bb3e-46c7ca1555ba/rulings",
+                     "prints_search_uri":  "https://api.scryfall.com/cards/search?order=released\u0026q=oracleid%3Ad6ab4159-e04e-4991-8a9b-9da302c98e9d\u0026unique=prints",
+                     "collector_number":  "13",
+                     "digital":  false,
+                     "rarity":  "common",
+                     "card_back_id":  "7840c131-f96b-4700-9347-2215c43156e6",
+                     "artist":  "Christopher Moeller",
+                     "artist_ids":  [
+                                        "21e10012-06ae-44f2-b38d-3824dd2e73d4"
+                                    ],
+                     "illustration_id":  "d5c2e9f0-cb0e-4e7c-9d81-c0fd7805b035",
+                     "border_color":  "black",
+                     "frame":  "2015",
+                     "full_art":  false,
+                     "textless":  false,
+                     "booster":  false,
+                     "story_spotlight":  false,
+                     "prices":  {
+                                    "usd":  "1.27",
+                                    "usd_foil":  null,
+                                    "usd_etched":  null,
+                                    "eur":  "0.65",
+                                    "eur_foil":  null,
+                                    "tix":  null
+                                },
+                     "related_uris":  {
+                                          "gatherer":  "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=423594",
+                                          "tcgplayer_infinite_articles":  "https://infinite.tcgplayer.com/search?contentMode=article\u0026game=magic\u0026partner=scryfall\u0026q=Aretopolis\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "tcgplayer_infinite_decks":  "https://infinite.tcgplayer.com/search?contentMode=deck\u0026game=magic\u0026partner=scryfall\u0026q=Aretopolis\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "edhrec":  "https://edhrec.com/route/?cc=Aretopolis"
+                                      },
+                     "purchase_uris":  {
+                                           "tcgplayer":  "https://www.tcgplayer.com/product/125573?page=1\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                           "cardmarket":  "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall\u0026searchString=Aretopolis\u0026utm_campaign=card_prices\u0026utm_medium=text\u0026utm_source=scryfall",
+                                           "cardhoarder":  "https://www.cardhoarder.com/cards?affiliate_id=scryfall\u0026data%5Bsearch%5D=Aretopolis\u0026ref=card-profile\u0026utm_campaign=affiliate\u0026utm_medium=card\u0026utm_source=scryfall"
+                                       }
+                 },
+                 {
+                     "object":  "card",
+                     "id":  "56c735c0-9346-431b-869f-3accfa193016",
+                     "oracle_id":  "805f9dc2-e172-481d-bae7-9a136a3d1e49",
+                     "multiverse_ids":  [
+                                            423595
+                                        ],
+                     "tcgplayer_id":  125574,
+                     "cardmarket_id":  294409,
+                     "name":  "Astral Arena",
+                     "lang":  "en",
+                     "released_at":  "2018-12-25",
+                     "uri":  "https://api.scryfall.com/cards/56c735c0-9346-431b-869f-3accfa193016",
+                     "scryfall_uri":  "https://scryfall.com/card/opca/14/astral-arena?utm_source=api",
+                     "layout":  "planar",
+                     "highres_image":  true,
+                     "image_status":  "highres_scan",
+                     "image_uris":  {
+                                        "small":  "https://cards.scryfall.io/small/front/5/6/56c735c0-9346-431b-869f-3accfa193016.jpg?1547432337",
+                                        "normal":  "https://cards.scryfall.io/normal/front/5/6/56c735c0-9346-431b-869f-3accfa193016.jpg?1547432337",
+                                        "large":  "https://cards.scryfall.io/large/front/5/6/56c735c0-9346-431b-869f-3accfa193016.jpg?1547432337",
+                                        "png":  "https://cards.scryfall.io/png/front/5/6/56c735c0-9346-431b-869f-3accfa193016.png?1547432337",
+                                        "art_crop":  "https://cards.scryfall.io/art_crop/front/5/6/56c735c0-9346-431b-869f-3accfa193016.jpg?1547432337",
+                                        "border_crop":  "https://cards.scryfall.io/border_crop/front/5/6/56c735c0-9346-431b-869f-3accfa193016.jpg?1547432337"
+                                    },
+                     "mana_cost":  "",
+                     "cmc":  0.0,
+                     "type_line":  "Plane — Kolbahan",
+                     "oracle_text":  "No more than one creature can attack each combat.\nNo more than one creature can block each combat.\nWhenever you roll {CHAOS}, Astral Arena deals 2 damage to each creature.",
+                     "colors":  [
+
+                                ],
+                     "color_identity":  [
+
+                                        ],
+                     "keywords":  [
+
+                                  ],
+                     "legalities":  {
+                                        "standard":  "not_legal",
+                                        "future":  "not_legal",
+                                        "historic":  "not_legal",
+                                        "gladiator":  "not_legal",
+                                        "pioneer":  "not_legal",
+                                        "explorer":  "not_legal",
+                                        "modern":  "not_legal",
+                                        "legacy":  "not_legal",
+                                        "pauper":  "not_legal",
+                                        "vintage":  "not_legal",
+                                        "penny":  "not_legal",
+                                        "commander":  "not_legal",
+                                        "brawl":  "not_legal",
+                                        "historicbrawl":  "not_legal",
+                                        "alchemy":  "not_legal",
+                                        "paupercommander":  "not_legal",
+                                        "duel":  "not_legal",
+                                        "oldschool":  "not_legal",
+                                        "premodern":  "not_legal",
+                                        "predh":  "not_legal"
+                                    },
+                     "games":  [
+                                   "paper"
+                               ],
+                     "reserved":  false,
+                     "foil":  false,
+                     "nonfoil":  true,
+                     "finishes":  [
+                                      "nonfoil"
+                                  ],
+                     "oversized":  true,
+                     "promo":  false,
+                     "reprint":  true,
+                     "variation":  false,
+                     "set_id":  "ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set":  "opca",
+                     "set_name":  "Planechase Anthology Planes",
+                     "set_type":  "planechase",
+                     "set_uri":  "https://api.scryfall.com/sets/ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set_search_uri":  "https://api.scryfall.com/cards/search?order=set\u0026q=e%3Aopca\u0026unique=prints",
+                     "scryfall_set_uri":  "https://scryfall.com/sets/opca?utm_source=api",
+                     "rulings_uri":  "https://api.scryfall.com/cards/56c735c0-9346-431b-869f-3accfa193016/rulings",
+                     "prints_search_uri":  "https://api.scryfall.com/cards/search?order=released\u0026q=oracleid%3A805f9dc2-e172-481d-bae7-9a136a3d1e49\u0026unique=prints",
+                     "collector_number":  "14",
+                     "digital":  false,
+                     "rarity":  "common",
+                     "card_back_id":  "7840c131-f96b-4700-9347-2215c43156e6",
+                     "artist":  "Sam Burley",
+                     "artist_ids":  [
+                                        "f89f4b78-cefb-41f7-b7cb-4f4d28de0c4f"
+                                    ],
+                     "illustration_id":  "3c8ac9e9-5c61-44d2-b2a5-eff983930098",
+                     "border_color":  "black",
+                     "frame":  "2015",
+                     "full_art":  false,
+                     "textless":  false,
+                     "booster":  false,
+                     "story_spotlight":  false,
+                     "prices":  {
+                                    "usd":  "1.63",
+                                    "usd_foil":  null,
+                                    "usd_etched":  null,
+                                    "eur":  "0.49",
+                                    "eur_foil":  null,
+                                    "tix":  null
+                                },
+                     "related_uris":  {
+                                          "gatherer":  "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=423595",
+                                          "tcgplayer_infinite_articles":  "https://infinite.tcgplayer.com/search?contentMode=article\u0026game=magic\u0026partner=scryfall\u0026q=Astral+Arena\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "tcgplayer_infinite_decks":  "https://infinite.tcgplayer.com/search?contentMode=deck\u0026game=magic\u0026partner=scryfall\u0026q=Astral+Arena\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "edhrec":  "https://edhrec.com/route/?cc=Astral+Arena"
+                                      },
+                     "purchase_uris":  {
+                                           "tcgplayer":  "https://www.tcgplayer.com/product/125574?page=1\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                           "cardmarket":  "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall\u0026searchString=Astral+Arena\u0026utm_campaign=card_prices\u0026utm_medium=text\u0026utm_source=scryfall",
+                                           "cardhoarder":  "https://www.cardhoarder.com/cards?affiliate_id=scryfall\u0026data%5Bsearch%5D=Astral+Arena\u0026ref=card-profile\u0026utm_campaign=affiliate\u0026utm_medium=card\u0026utm_source=scryfall"
+                                       }
+                 },
+                 {
+                     "object":  "card",
+                     "id":  "434a2d09-5776-4168-b863-f3b0a736d19b",
+                     "oracle_id":  "82e67c57-6d7a-44cc-ba63-77ce887ab075",
+                     "multiverse_ids":  [
+                                            423596
+                                        ],
+                     "tcgplayer_id":  125575,
+                     "cardmarket_id":  294410,
+                     "name":  "Bant",
+                     "lang":  "en",
+                     "released_at":  "2018-12-25",
+                     "uri":  "https://api.scryfall.com/cards/434a2d09-5776-4168-b863-f3b0a736d19b",
+                     "scryfall_uri":  "https://scryfall.com/card/opca/15/bant?utm_source=api",
+                     "layout":  "planar",
+                     "highres_image":  true,
+                     "image_status":  "highres_scan",
+                     "image_uris":  {
+                                        "small":  "https://cards.scryfall.io/small/front/4/3/434a2d09-5776-4168-b863-f3b0a736d19b.jpg?1547432701",
+                                        "normal":  "https://cards.scryfall.io/normal/front/4/3/434a2d09-5776-4168-b863-f3b0a736d19b.jpg?1547432701",
+                                        "large":  "https://cards.scryfall.io/large/front/4/3/434a2d09-5776-4168-b863-f3b0a736d19b.jpg?1547432701",
+                                        "png":  "https://cards.scryfall.io/png/front/4/3/434a2d09-5776-4168-b863-f3b0a736d19b.png?1547432701",
+                                        "art_crop":  "https://cards.scryfall.io/art_crop/front/4/3/434a2d09-5776-4168-b863-f3b0a736d19b.jpg?1547432701",
+                                        "border_crop":  "https://cards.scryfall.io/border_crop/front/4/3/434a2d09-5776-4168-b863-f3b0a736d19b.jpg?1547432701"
+                                    },
+                     "mana_cost":  "",
+                     "cmc":  0.0,
+                     "type_line":  "Plane — Alara",
+                     "oracle_text":  "All creatures have exalted. (Whenever a creature attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents its controller controls.)\nWhenever you roll {CHAOS}, put a divinity counter on target green, white, or blue creature. That creature has indestructible for as long as it has a divinity counter on it.",
+                     "colors":  [
+
+                                ],
+                     "color_identity":  [
+
+                                        ],
+                     "keywords":  [
+
+                                  ],
+                     "legalities":  {
+                                        "standard":  "not_legal",
+                                        "future":  "not_legal",
+                                        "historic":  "not_legal",
+                                        "gladiator":  "not_legal",
+                                        "pioneer":  "not_legal",
+                                        "explorer":  "not_legal",
+                                        "modern":  "not_legal",
+                                        "legacy":  "not_legal",
+                                        "pauper":  "not_legal",
+                                        "vintage":  "not_legal",
+                                        "penny":  "not_legal",
+                                        "commander":  "not_legal",
+                                        "brawl":  "not_legal",
+                                        "historicbrawl":  "not_legal",
+                                        "alchemy":  "not_legal",
+                                        "paupercommander":  "not_legal",
+                                        "duel":  "not_legal",
+                                        "oldschool":  "not_legal",
+                                        "premodern":  "not_legal",
+                                        "predh":  "not_legal"
+                                    },
+                     "games":  [
+                                   "paper"
+                               ],
+                     "reserved":  false,
+                     "foil":  false,
+                     "nonfoil":  true,
+                     "finishes":  [
+                                      "nonfoil"
+                                  ],
+                     "oversized":  true,
+                     "promo":  false,
+                     "reprint":  true,
+                     "variation":  false,
+                     "set_id":  "ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set":  "opca",
+                     "set_name":  "Planechase Anthology Planes",
+                     "set_type":  "planechase",
+                     "set_uri":  "https://api.scryfall.com/sets/ada3345c-d416-49bc-92e0-73363ddee5c8",
+                     "set_search_uri":  "https://api.scryfall.com/cards/search?order=set\u0026q=e%3Aopca\u0026unique=prints",
+                     "scryfall_set_uri":  "https://scryfall.com/sets/opca?utm_source=api",
+                     "rulings_uri":  "https://api.scryfall.com/cards/434a2d09-5776-4168-b863-f3b0a736d19b/rulings",
+                     "prints_search_uri":  "https://api.scryfall.com/cards/search?order=released\u0026q=oracleid%3A82e67c57-6d7a-44cc-ba63-77ce887ab075\u0026unique=prints",
+                     "collector_number":  "15",
+                     "digital":  false,
+                     "rarity":  "common",
+                     "card_back_id":  "7840c131-f96b-4700-9347-2215c43156e6",
+                     "artist":  "Michael Komarck",
+                     "artist_ids":  [
+                                        "96a53b95-fe5f-4fbb-9411-ccf4ee150aca"
+                                    ],
+                     "illustration_id":  "37d62f5a-f174-48ca-9678-9e1ec7002686",
+                     "border_color":  "black",
+                     "frame":  "2015",
+                     "full_art":  false,
+                     "textless":  false,
+                     "booster":  false,
+                     "story_spotlight":  false,
+                     "prices":  {
+                                    "usd":  "3.31",
+                                    "usd_foil":  null,
+                                    "usd_etched":  null,
+                                    "eur":  "1.00",
+                                    "eur_foil":  null,
+                                    "tix":  null
+                                },
+                     "related_uris":  {
+                                          "gatherer":  "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=423596",
+                                          "tcgplayer_infinite_articles":  "https://infinite.tcgplayer.com/search?contentMode=article\u0026game=magic\u0026partner=scryfall\u0026q=Bant\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "tcgplayer_infinite_decks":  "https://infinite.tcgplayer.com/search?contentMode=deck\u0026game=magic\u0026partner=scryfall\u0026q=Bant\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                          "edhrec":  "https://edhrec.com/route/?cc=Bant"
+                                      },
+                     "purchase_uris":  {
+                                           "tcgplayer":  "https://www.tcgplayer.com/product/125575?page=1\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall",
+                                           "cardmarket":  "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall\u0026searchString=Bant\u0026utm_campaign=card_prices\u0026utm_medium=text\u0026utm_source=scryfall",
+                                           "cardhoarder":  "https://www.cardhoarder.com/cards?affiliate_id=scryfall\u0026data%5Bsearch%5D=Bant\u0026ref=card-profile\u0026utm_campaign=affiliate\u0026utm_medium=card\u0026utm_source=scryfall"
+                                       }
+                 }
+				 				 ]
+				 }
